@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}    
+View Post
+{% endblock %}
+
+{% block content %}
+<div class="container alert-success">
+    <h1>{{post.title}}</h1>
+    <small>By {{post.author}}</small>
+    <br>
+    <small>Created on {{post.datetime}}</small>
+    {% if user.is_authenticated %}
+    <br>
+    <a href="{% url 'Edit_Post' post.pk %}" style="color: #000000; text-decoration: none !important;">EDIT</a>
+    <br>
+    <a href="{% url 'Delete_Post' post.pk %}" style="color: #000000; text-decoration: none !important;">DELETE</a>
+    {% endif %}
+    
+</div>
+<br>
+<br>
+<div class="container">
+    <p class="lead">{{post.description}}</p>
+</div>
+<br>
+<div class="container bg-dark text-light">
+    <pre><code>{{post.code}}</code></pre>
+</div>
+<br>
+<div>
+    <p class="lead">{{post.conclusion}}</p>
+</div>
+
+{% endblock %}

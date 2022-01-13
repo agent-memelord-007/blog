@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}    
+Projects
+{% endblock %}
+
+{% block content %}
+
+<h1>Projects:</h1>
+<div class="container">
+    <ul class="list-group" style="list-style-type: none;">
+    {% for post in object_list %}
+
+    <li class="list-group-item-success"><a href="{% url 'View_Post' post.pk %}" style="color: #000000; text-decoration: none !important;">{{post.title}}</a></li>
+
+    <br>
+
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
